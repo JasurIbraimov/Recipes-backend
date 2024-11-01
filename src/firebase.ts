@@ -1,5 +1,4 @@
 import admin, { ServiceAccount } from "firebase-admin"
-console.log(process.env.PROJECT_ID)
 const firebaseConfig = {
 	"type": "service_account",
 	"project_id": process.env.PROJECT_ID,
@@ -13,7 +12,6 @@ const firebaseConfig = {
 	"client_x509_cert_url": process.env.CLIENT_CERT_URL,
 	"universe_domain": process.env.UNIVERSE_DOMAIN
 } 
-console.log(firebaseConfig)
 const app = admin.initializeApp({
 	credential: admin.credential.cert(firebaseConfig as ServiceAccount)
 });
