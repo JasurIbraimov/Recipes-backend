@@ -17,6 +17,7 @@ app.use(express.json());
 app.use("api/users", usersRouter);
 app.use("api/recipes", recipesRouter);
 
+
 app.listen(PORT, () => {
     console.log("Server is live at " + PORT);
 });
