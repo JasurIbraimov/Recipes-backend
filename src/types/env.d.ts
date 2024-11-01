@@ -11,5 +11,6 @@ declare namespace NodeJS {
 	  AUTH_PROVIDER_CERT_URL: string;
 	  CLIENT_CERT_URL: string;
 	  UNIVERSE_DOMAIN: string;
+	  JWT_SECRET_KEY: string;
 	}
   }
