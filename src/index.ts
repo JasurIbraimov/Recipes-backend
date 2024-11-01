@@ -1,15 +1,22 @@
 import express from "express";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
+import cors from "cors";
+import usersRouter from "./routes/users";
+import recipesRouter from "./routes/recipes";
+
 dotenv.config();
 
-import {firestore} from "./firebase"
-
+import { firestore } from "./firebase";
 
 const PORT = process.env.PORT || 8888;
-const app =  express()
-console.log(firestore.collection("recipe"))
+const app = express();
 
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use("api/users", usersRouter);
+app.use("api/recipes", recipesRouter);
 
 app.listen(PORT, () => {
-	console.log("Server is live at " + PORT)
-})
+    console.log("Server is live at " + PORT);
+});
