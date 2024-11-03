@@ -12,5 +12,6 @@ declare namespace NodeJS {
 	  CLIENT_CERT_URL: string;
 	  UNIVERSE_DOMAIN: string;
 	  JWT_SECRET_KEY: string;
+	  STORAGE_BUCKET: string;
 	}
   }

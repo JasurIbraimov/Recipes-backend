@@ -6,8 +6,9 @@ import recipesRouter from "./routes/recipes";
 
 dotenv.config();
 
-import { firestore } from "./firebase";
+import { firestore, storage } from "./firebase";
 
+console.log(firestore.collection("items"));
 const PORT = process.env.PORT || 8888;
 const app = express();
 

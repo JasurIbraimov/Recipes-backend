@@ -13,7 +13,8 @@ const firebaseConfig = {
 	"universe_domain": process.env.UNIVERSE_DOMAIN
 } 
 const app = admin.initializeApp({
-	credential: admin.credential.cert(firebaseConfig as ServiceAccount)
+	credential: admin.credential.cert(firebaseConfig as ServiceAccount),
+	storageBucket: process.env.STORAGE_BUCKET
 });
 
 export const auth = app.auth();

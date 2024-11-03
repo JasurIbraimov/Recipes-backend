@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import "../types/custom"; 
 
 export const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.split(" ")[1];
@@ -15,6 +14,7 @@ export const authenticateUser = (req: Request, res: Response, next: NextFunction
 			throw new Error("No secret key provided!");
 		}
         const decoded = jwt.verify(token, secretKey);
+         // @ts-ignore
         req.user = decoded; 
         next();
     } catch (error) {
