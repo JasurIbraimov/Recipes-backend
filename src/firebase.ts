@@ -1,4 +1,7 @@
 import admin, { ServiceAccount } from "firebase-admin"
+import dotenv from "dotenv";
+dotenv.config();
+
 const firebaseConfig = {
 	"type": "service_account",
 	"project_id": process.env.PROJECT_ID,
@@ -12,6 +15,7 @@ const firebaseConfig = {
 	"client_x509_cert_url": process.env.CLIENT_CERT_URL,
 	"universe_domain": process.env.UNIVERSE_DOMAIN
 } 
+
 const app = admin.initializeApp({
 	credential: admin.credential.cert(firebaseConfig as ServiceAccount),
 	storageBucket: process.env.STORAGE_BUCKET

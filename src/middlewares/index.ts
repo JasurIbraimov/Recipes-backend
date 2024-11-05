@@ -13,7 +13,7 @@ export const authenticateUser = (req: Request, res: Response, next: NextFunction
 		if(!secretKey) {
 			throw new Error("No secret key provided!");
 		}
-        const decoded = jwt.verify(token, secretKey);
+        const decoded = jwt.verify(token, secretKey) as {id: string};
          // @ts-ignore
         req.user = decoded; 
         next();

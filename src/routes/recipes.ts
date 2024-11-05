@@ -5,12 +5,14 @@ import {
     deleteRecipeById,
     updateRecipeById,
 } from "../controllers/recipes";
-import { authenticateUser } from '../middlewares'
+import { authenticateUser } from '../middlewares';
+import multer from "multer";
 
 const router = Router();
+const upload = multer();
 
 router.get("/:id", authenticateUser, getRecipeById);
-router.post("/", authenticateUser, createRecipe);
+router.post("/", authenticateUser, upload.single("file"), createRecipe);
 router.delete("/:id", authenticateUser, deleteRecipeById);
 router.put("/:id", authenticateUser, updateRecipeById);
 
