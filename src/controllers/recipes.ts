@@ -36,6 +36,9 @@ export const bookmarkRecipe = async (req: Request, res: Response) => {
 
 export const getAllRecipes = async (req: Request, res: Response) => {
     try {
+        return res.status(200).send({
+            message: "Get all recipes"
+        })
     } catch (error) {
         if (error instanceof Error) {
             return res.status(500).send({
@@ -47,6 +50,7 @@ export const getAllRecipes = async (req: Request, res: Response) => {
             });
         }
     }
+
 };
 
 export const getRecipeById = async (req: Request, res: Response) => {
