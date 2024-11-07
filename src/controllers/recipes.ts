@@ -147,6 +147,12 @@ export const createRecipe = async (req: Request, res: Response) => {
 
 export const deleteRecipeById = async (req: Request, res: Response) => {
     try {
+        const { id } = req.params;
+        if (!id || id.trim().length === 0) {
+            return res.status(400).send({
+                message: "ID of the recipe is not provided!",
+            });
+        }
     } catch (error) {
         if (error instanceof Error) {
             return res.status(500).send({
