@@ -1,5 +1,4 @@
-import { resolveSoa } from "dns";
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import { addFileToStorage } from ".";
 import { Recipe } from "../types";
 import { firestore } from "../firebase";
